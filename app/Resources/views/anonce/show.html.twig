@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!-- wrapper -->
+<div id="wrapper">
+  <section class="hero height-350 hero-game" style="background-image: url(http://127.0.0.1:8000/img/cover/cover-review.jpg);">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="page-header">
+      <div class="page-title">{{anonce.jeux.libelle}}</div>
+      <a href="http://127.0.0.1:8000/anonce?game={{anonce.jeux.id}}" class="btn btn-success margin-top-30 text-initial">Show all offers of this game</a>
+    </div>
+  </div>
+  </section>
+
+  <section class="bg-grey-50">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 leftside">
+        {% if app.request.get('error') != NULL %}
+        <div class="alert alert-danger">
+					 You don't have that game !
+				</div>
+        {% endif %}
+        <div class="post post-single">
+          <div class="post-header">
+            <div class="post-title">
+              <h2><a href="#">{{anonce.jeux.libelle}}</a></h2>
+              <ul class="post-meta">
+                <li><a href="#"><i class="fa fa-user"></i> {{anonce.utilisateur.prenom}} {{anonce.utilisateur.nom}}</a></li>
+              </ul>
+            </div>
+          </div>
+          <blockquote>
+            <em style="font-size: 21px"><i class="fa fa-exchange"></i> Exchange with {{anonce.jeuxDemandee.libelle}}</em>
+          </blockquote>
+          <div class="embed-responsive embed-responsive-16by9" style="margin-bottom:10px;">
+    				<iframe class="embed-responsive-item" src="{{anonce.jeux.video}}" allowfullscreen></iframe>
+    			</div>
+          <p>{{anonce.description}}</p>
+
+        </div>
+
+      </div>
+      <div class="col-md-4 rightside">
+        <a href="http://127.0.0.1:8000/exchange?id={{anonce.id}}&jeux={{anonce.jeux.id}}&jeuxDemandee={{anonce.jeuxDemandee.id}}&utilisateur={{anonce.utilisateur.id}}" class="btn btn-primary btn-rounded btn-shadow btn-block float-right" name="save" style="margin-bottom:25px;">Exchange</a>
+        <div class="widget widget-game" style="height: 500px;background-image: url(http://127.0.0.1:8000/images/{{anonce.jeux.path}});">
+          <div class="overlay text-center" style="padding-top: 240px;">
+              <i class="fa fa-heart" style="font-size:48px;color: #e74c3c"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+</div>
+{% endblock %}

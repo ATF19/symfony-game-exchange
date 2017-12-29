@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div id="wrapper">
+		<section class="hero height-350 hero-game" style="background-image: url(http://127.0.0.1:8000/img/cover/cover-game.jpg);">
+			<div class="hero-bg"></div>
+			<div class="container">
+				<div class="page-header">
+					<div class="page-title">Create an offer</div>
+					<a href="http://127.0.0.1:8000/anonce" class="btn btn-success text-initial">Show all the offers</a>
+				</div>
+			</div>
+		</section>
+
+    <div class="container" style="margin-top:25px;margin-bottom:25px;">
+      {{ form_start(form) }}
+          {{ form_widget(form) }}
+					{% if message != NULL %}
+						<p style="color: #c0392b;font-size:22px;">{{message}}</p>
+					{% endif %}
+          <div class=" text-right">
+            <button class="btn btn-primary btn-rounded btn-shadow float-right" style="width:150px;" type="submit" name="save">Create</button>
+          </div>
+      {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

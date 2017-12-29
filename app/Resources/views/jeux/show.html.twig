@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Jeux</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ jeux.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ jeux.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Console</th>
+                <td>{{ jeux.console }}</td>
+            </tr>
+            <tr>
+                <th>Path</th>
+                <td>{{ jeux.path }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('jeux_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('jeux_edit', { 'id': jeux.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

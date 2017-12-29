@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div id="wrapper">
+		<section class="hero hero-games height-300" style="background-image: url(http://127.0.0.1:8000/img/cover/cover-review.jpg);">
+			<div class="hero-bg"></div>
+			<div class="container">
+				<div class="page-header">
+	        <div class="page-title bold"><a href="#">
+	          Our offers
+	        </a></div>
+	        <p></p>
+	      </div>
+			</div>
+		</section>
+
+    <section>
+			<div class="container">
+				<div class="row">
+          {% for anonce in anonces %}
+          <div class="post post-review">
+							<div class="row">
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+									<div class="post-thumbnail" style="width:150px">
+										<a href="{{ path('anonce_show', { 'id': anonce.id }) }}"><img src="http://127.0.0.1:8000/images/{{ anonce.jeux.path }}" class="img-responsive" style="width:150px" alt=""></a>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+									<div class="post-header">
+										<div class="post-title">
+											<h4><a href="{{ path('anonce_show', { 'id': anonce.id }) }}">{{anonce.jeux.libelle}}</a></h4>
+											<ul class="post-meta">
+												<li><a href="#"><i class="fa fa-gamepad"></i> {{anonce.jeux.console}}</a></li>
+												<li><i class="fa fa-exchange"></i> Exchange with {{anonce.jeuxDemandee.libelle}}</li>
+												<li><i class="fa fa-user"></i> Posted by {{anonce.utilisateur.prenom}} {{anonce.utilisateur.nom}}</li>
+											</ul>
+										</div>
+									</div>
+                  <p>{{anonce.description}}</p>
+                  <a href="{{ path('anonce_show', { 'id': anonce.id }) }}" class="btn btn-default btn-rounded"> Show</a>
+								</div>
+							</div>
+						</div>
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+
+</div>
+
+
+{% endblock %}

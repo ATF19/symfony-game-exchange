@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from gameforest.yakuzi.eu/home-magazine.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2016 13:09:00 GMT -->
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="theme-color" content="#141619">
+
+	<title>Flanck Attitude - Easy switch easy life</title>
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<!-- CORE CSS -->
+	<link href="http://127.0.0.1:8000/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://127.0.0.1:8000/css/theme.min.css" rel="stylesheet">
+	<link href="http://127.0.0.1:8000/css/custom.css" rel="stylesheet">
+	<link href="http://127.0.0.1:8000/css/helpers.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+
+	<!-- PLUGINS -->
+	<link href="http://127.0.0.1:8000/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://127.0.0.1:8000/plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
+	<link href="http://127.0.0.1:8000/plugins/animate/animate.min.css" rel="stylesheet">
+	<link href="http://127.0.0.1:8000/plugins/animate/animate.delay.css" rel="stylesheet">
+	<link href="http://127.0.0.1:8000/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+</head>
+
+<body class="fixed-header">
+	<header>
+		<div class="container">
+			<span class="bar hide"></span>
+			<a href="http://127.0.1:8000" class="logo"><img src="http://127.0.0.1:8000/img/logo.png" alt="" style="width:75px;height:auto;"></a>
+			<nav>
+				<div class="nav-control">
+					<ul>
+						<li>
+							<a href="http://127.0.0.1:8000/">Home</a>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle">Games</a>
+							<ul class="dropdown-menu default">
+								<li><a href="http://127.0.0.1:8000/jeux"><i class="fa fa-list"></i>All</a></li>
+								<li><a href="http://127.0.0.1:8000/jeux?cat=pc"><i class="fa fa-laptop"></i>PC</a></li>
+								<li><a href="http://127.0.0.1:8000/jeux?cat=xbox"><i class="fa fa-gamepad"></i>XBOX</a></li>
+								<li><a href="http://127.0.0.1:8000/jeux?cat=ps4"><i class="fa fa-desktop"></i>PS4</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="http://127.0.0.1:8000/anonce">Offers</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="nav-right">
+				{% if app.session.get('email') == NULL%}
+					<a href="http://127.0.0.1:8000/utilisateur/connecter">Login</a>
+					<a href="http://127.0.0.1:8000/utilisateur/new">Register</a>
+				{% else %}
+
+				<div class="nav-profile dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>{{app.session.get('email')}}</span></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://127.0.0.1:8000/mygames"><i class="fa fa-gamepad"></i> My games</a></li>
+						<li><a href="http://127.0.0.1:8000/anonce/new"><i class="fa fa-plus"></i> Create an offer</a></li>
+						<li class="divider"></li>
+						<li><a href="http://127.0.0.1:8000/utilisateur/connecter"><i class="fa fa-power-off"></i> Sign Out</a></li>
+					</ul>
+
+				</div>
+				{% endif %}
+				<a href="#" data-toggle="modal-search"><i class="fa fa-search"></i></a>
+			</div>
+		</div>
+	</header>
+	<!-- /header -->
+
+	<div class="modal-search">
+		<div class="container">
+			<form method="get" action="http://127.0.0.1:8000/jeux">
+				<input type="text" class="form-control" placeholder="Name of game..." name="search">
+			</form>
+			<i class="fa fa-times close"></i>
+		</div>
+	</div><!-- /.modal-search -->
+
+	<!-- wrapper -->
+	<div id="wrapper">
+
+			{% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+      </div>
+  	<!-- /#wrapper -->
+
+  	<!-- footer -->
+
+
+  		<footer class="footer-bottom">
+  			<div class="container">
+  				<ul class="list-inline">
+  					<li><a href="https://www.twitter.com" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Twitter"><i class="fa fa-twitter"></i></a></li>
+  					<li><a href="https://www.facebook.com/mehdi.bougattaya.796" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Facebook"><i class="fa fa-facebook"></i></a></li>
+  					<li><a href="https://www.instagram.com/mehdi_bgt/" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Instagram"><i class="fa fa-instagram"></i></a></li>
+  				</ul>
+  				&copy; 2018 Flanck attitude. All rights reserved.
+  			</div>
+  		</footer>
+  	<!-- /.footer -->
+		<div id="signin" class="modal fade" tabindex="-1">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title"><i class="fa fa-user"></i> Sign In to Gameforest</h3>
+					</div>
+					<div class="modal-body">
+						<a class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Connect with Facebook</a>
+						<div class="separator"><span>or</span></div>
+						<form>
+							<div class="form-group input-icon-left">
+								<i class="fa fa-user"></i>
+								<input type="text" class="form-control" name="username" placeholder="Username">
+							</div>
+							<div class="form-group input-icon-left">
+								<i class="fa fa-lock"></i>
+								<input type="password" class="form-control" name="password" placeholder="Password">
+							</div>
+							<button type="button" class="btn btn-primary btn-block">Sign In</button>
+
+							<div class="form-actions">
+								<div class="checkbox">
+									<input type="checkbox" id="checkbox">
+									<label for="checkbox">Remember me</label>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer text-left">
+						Don't have Gameforest account? <a href="register.html">Sign Up Now</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.modal -->
+
+		<!-- Javascript -->
+		<script src="http://127.0.0.1:8000/plugins/jquery/jquery-1.11.1.min.js"></script>
+		<script src="http://127.0.0.1:8000/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="http://127.0.0.1:8000/plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="http://127.0.0.1:8000/plugins/core.min.js"></script>
+		<script>
+		(function($) {
+		"use strict";
+			$(".owl-carousel").owlCarousel({
+				autoPlay: true,
+				items : 6, //4 items above 1000px browser width
+				itemsDesktop : [1600,3], //3 items between 1000px and 0
+				itemsTablet: [940,1], //1 items between 600 and 0
+				itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+			});
+		})(jQuery);
+		</script>
+
+  </body>
+
+  <!-- Mirrored from gameforest.yakuzi.eu/home-magazine.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2016 13:10:06 GMT -->
+  </html>
