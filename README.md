@@ -1,4 +1,4 @@
-projet
+Symfony Game Exchange
 ======
 
-A Symfony project created on December 14, 2017, 7:41 pm.
+An online game exchange platform with symfony 2.8
